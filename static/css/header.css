@@ -1,0 +1,93 @@
+header {
+    background-color: var(--surface-color);
+    height: 85px;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    border-bottom: 2px solid var(--neutral-color);
+}
+
+
+.logo {
+    width: 30%;
+    height: 100%;
+    color: var(--neutral-color);
+    text-decoration: none;
+}
+
+.logo a, .logo h1 {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-menu {
+    width: 70%;
+    height: 100%;
+}
+
+.nav-options {
+    width: 100%;
+    height: 100%;
+}
+
+header h1 {
+    font-size: 50px;
+}
+
+
+.nav-options a {
+    color: var(--neutral-color);
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 5px 40px 5px 40px;
+    padding: 5px 10px;
+    border: 1px solid var(--neutral-color);
+    border-radius: 4px;
+}
+
+.nav-options a:hover {
+    border-bottom: solid 2px var(--primary-color);
+    background-color: var(--neutral-color);
+    color: var(--surface-color);
+}
+
+
+#checkBox, .hamburger-btn {
+    display: none;
+}
+
+
+.header .span {
+    background-color: red;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-h1 {
+    font-family: var(--eater-font);
+}
+
+.nav-h1:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--primary-color-300);
+}
+
+
+
+
+@media (max-width: 767px) {
+
+    .nav-options  a {
+        margin: 5px 10px 5px 10px;
+    }
+
+    .nav-h1{
+        font-size: 5px;
+    }
+
+}

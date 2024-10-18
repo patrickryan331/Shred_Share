@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Details{% endblock %}
+
+{% block content %}
+
+    <h2>{{title}}</h2>
+    <label>Published  on: {{post.date}} </label>
+    <hr />
+    <p>{{post.body}}</p>
+
+{% endblock %}

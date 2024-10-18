@@ -1,0 +1,60 @@
+.mountain-page-info {
+
+}
+
+.info-page-header {
+    font-size: 56px;
+    color: var(--neutral-color);
+    background-color: var(--surface-color);
+    text-align: center;
+    max-width: 200px;
+    border: 1px solid var(--neutral-color);
+    border-radius: 10px;
+    margin: 20px auto 30px auto;
+}
+
+.mountain-page-img {
+    margin: 10px auto 25px auto;
+    max-width: 575px;
+    text-align: center;
+    background-color: #25252591;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.mountain-page-img img {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.weather {
+    margin: 10px auto 25px auto;
+    max-width: 650px;
+    text-align: center;
+    background-color: #25252591;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.ski-report {
+    margin: 10px auto 25px auto;
+    max-width: 650px;
+    text-align: center;
+    background-color: #25252591;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.mountain-post {
+    margin: 10px auto 25px auto;
+    max-width: 650px;
+    text-align: center;
+    background-color: #25252591;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 30px;
+}

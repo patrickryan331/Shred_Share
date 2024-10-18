@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Post, Mountain
 
-# Register your models here.
+admin.site.register(Post)
+admin.site.register(Mountain)

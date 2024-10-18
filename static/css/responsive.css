@@ -1,0 +1,54 @@
+
+@media (max-width: 640px) {
+    html {
+        font-size: 10px;
+    }
+
+    .hamburger-btn {
+        display: inline-flex;
+    }
+
+    .hamburger-btn span {
+        display: block;
+        height: 3px;
+        width: 30px;
+        background-color: var(--neutral-color);
+        margin: 6px auto;
+    }
+
+
+
+    #checkBox:not(:checked)~.nav-options {
+        height: 0px;
+        overflow: hidden;
+    }
+
+    #checkBox:checked~.nav-options {
+        height: auto;
+        overflow: auto;
+    }
+
+    header {
+        height: max-content;
+        flex-direction: column;
+        padding: 2%;
+    }
+    
+    .logo {
+        width: 100%;
+    }
+
+    .nav-options {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-options a {
+        margin: 1rem;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,54 @@
+
+<header class="center-row">
+        
+
+    <div class="logo center-row">
+        <a href="{% url 'home' %}">
+            <div class="nav-h1">
+                <h1>Shred Share</h1>
+            </div>
+        </a>
+    </div>
+    
+
+    <nav class="nav-menu">
+        
+
+        <input type="checkbox" id="checkBox">
+
+        <div class="hamburger-btn">
+            <label for="checkBox">
+            <span></span>
+            <span></span>
+            <span></span>
+            </label>
+        </div>
+
+
+        <div class="nav-options center-row">
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'mountains' %}">Mountains</a>
+            <a href="">Contact</a>
+        
+
+            
+
+            <div class="account-nav-button" role="search">
+                {% if user.is_authenticated %}
+
+                <span class="user-info">
+                
+                <a href="{% url 'logout' %}">Logout | {{ user.username }}</a>
+                
+                </span>
+                {% else %}
+
+                <a href="{% url 'login' %}" class="login-button">Login</a>
+
+                {% endif %}
+            </div>
+        </div>  
+
+
+    </nav>
+</header>
