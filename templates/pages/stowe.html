@@ -8,12 +8,27 @@
 
 
 <div class="mountain-info-page">
-    <div class="info-page-header">
-        <h5>Stowe</h5>
+    <div class="info-page-header stowe-header">
+        <h1>Stowe</h1>
     </div>
 
-    <div class="mountain-page-img">
-        <img src="/static/img/stowe-logo.png" alt="missing img">
+
+    <div class="mountain-page-img center-column">
+        <div class="carousel">
+            <img src="/static/img/stowe-logo.png" alt="Okemo logo" class="active">
+            <img src="/static/img/stowe2.jpeg" alt="">
+            <img src="/static/img/stowe3.jpg" alt="">
+            <img src="/static/img/stowe4.jpg" alt="">
+            <img src="/static/img/stowe5.jpg" alt="">
+        </div>
+    </div>
+
+    {% block extra_js %}
+    <script src="{% static 'js/carousel.js' %}"></script>
+    {% endblock %}
+
+    <div class="mountain-info">
+        <h5 class="mountain-info-h5">Stowe Mountain Resort is a ski resort in the northeastern United States, near the town of Stowe in northern Vermont, comprising two separate mountains: Mount Mansfield and Spruce Peak. The lift-served vertical drop of Mount Mansfield is 2,360 feet, the fifth largest in New England and the fourth largest in Vermont.</h5>
     </div>
 
     <div class="weather">
@@ -24,18 +39,55 @@
         <h2>this is where the ski report will go</h2>
     </div>
 
-    <div class="mountain-post">
-        <h2>this is where the mountain posts will go</h2>
+
+    <div class="mountain-post">                
+
+        <h1>Create a Post !</h1>
+    
+    
+    
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'save_comment' %}">
+                {% csrf_token %}
+    
+                <input name="mountain_id" type="hidden" value="{{mountain_id}}">
+                <input name="mountain_name" type="hidden" value="{{mountain_name}}">
+                {{form.as_p}} 
+    
+                <button type="submit">Save Post</button>
+            </form>
+            {% else %}
+            <p>You must be logged in to create a post.</p>
+            {% endif %}
     </div>
+    
+    
+    
+        <div class="mountain-post-list">
+    
+            <h1>Stowe Shred Posts !</h1>
+    
+            {% if user.is_authenticated %}
+                {% for post in posts %}
+                    <div class="post-body">
+                        <h6>{{post.title}}</h6>
+                        <h3>Posted by: {{post.author}}</h3>
+                        <h4>{{post.date}}</h4>
+                        <p>{{post.body}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+                <p class="logged-out-message">You must be logged in to view posts.</p>
+            {% endif %}
+                
+            </div>
+        </div>
+
+
+
+
+
 
 </div>
-
-
-
-
-
-
-
-
-
 {% endblock %}

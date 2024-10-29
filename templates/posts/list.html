@@ -6,15 +6,19 @@
 {% block content %}
 
 
-    <h1>posts</h1>
+    <h1 class="center-column">Posts!!</h1>
     {% for post in post_list %}
-    <div class="card">
+    <div class="post-card center-column">
         <div class="card-body">
             <a>
-            <h5  class= "card-title">{{post.title}}</h5>
+            <h5 class= "card-title">{{post.title}}</h5>
             </a>
-            <h6 class="card-subtitle mb-2 text-body-secondary">{{post.date}}</h6>
-            <p class="card-text">{{post.body|truncatechard:64}}</p>
+            <h6 class="card-date">{{post.date}}</h6>
+            <h5 class="card-mountain">{{post.mountain}}</h5>
+            <p class="card-text">{{post.body|truncatechars:64}}</p>
+            <a href="{% url 'details' post.id %}">
+                <button type="button" class="button">Read More</button>
+            </a>
         </div>
     </div>
     {% endfor %}

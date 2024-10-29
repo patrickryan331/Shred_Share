@@ -1,28 +1,39 @@
+
+
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
-
-{% block title %}Login{% endblock %}
+{% block title %}Login{% endblock title %}
 
 {% block content %}
+<div class="login-container center-column">
 
-<div class="login center-column">
     <h1>Login Page</h1>
 
-        <form method="post">
-            {% csrf_token %}
+    <form class="card p-4" method="post">
+        <h2 class="form-h2">Login Form</h2>
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input name="username" type="text" class="form-control" required>
+        </div>
 
-            {{  form.as_p }}
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" required>
+        </div>
 
-            <button>Login</button>
+        <button class="button">Login</button>
 
-        </form>
+        <h2>Don't have an account?</h2>
+        <p>Join Shred Share to unlock exclusive features! Create an account to gain access to posting your own blogs, sharing photos, and commenting on resort conditions. As a member, you’ll be able to connect with fellow winter sports enthusiasts, plan meetups at your favorite mountains, and enjoy perks at community events. Be part of New England's vibrant skiing and snowboarding community—sign up today!</p>
+        <button type="button">
+            <a href="{% url 'signup' %}">Click here!</a>
+        </button>
 
 
+    </form>
 </div>
-
-
-
-
 {% endblock %}

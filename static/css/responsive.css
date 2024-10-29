@@ -16,8 +16,6 @@
         margin: 6px auto;
     }
 
-
-
     #checkBox:not(:checked)~.nav-options {
         height: 0px;
         overflow: hidden;
@@ -28,8 +26,13 @@
         overflow: auto;
     }
 
+    #checkBox:checked~header {
+        height: 600px !important;
+        overflow: auto;
+    }
+
     header {
-        height: max-content;
+        height: 150px;
         flex-direction: column;
         padding: 2%;
     }
@@ -46,9 +49,131 @@
     .nav-options a {
         margin: 1rem;
     }
+
+    .mountain-page-img {
+        height: 300px !important;
+        background-color: red;
+    }
+
+    .carousel {
+        max-height: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .mountain-post {
+        max-height: 95% !important;
+        max-width: 95% !important;
+    }
+
+    .mountain-post-list {
+        max-height: 95% !important;
+        max-width: 95% !important;
+    }
+
+    .mountain-info {
+        max-height: 95% !important;
+        max-width: 95% !important;
+    }
+
+    .weather {
+        max-height: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .ski-report {
+        max-height: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .mountains-logo img {
+        width: 70% !important;
+    }
+
+    .mountains-info {
+        width: 95% !important;
+    }
 }
 
 
 
+
+
+@media (max-width: 1150px) {
+
+    header {
+        height: 150px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HOME PAGE */
+
+@media (max-width: 767px) {
+    .home {
+        padding: 1%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home .home-section {
+        padding: 20px;
+        margin: 30px 10px;
+        border-radius: 20px;
+        max-width: 450px;
+    }
+
+    .home .home-section h1 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .home .home-section p {
+        font-size: 16px;
+        text-align: left;
+        padding: 0 10px;
+    }
+
+    .home-img img {
+        width: 90%;
+        border-radius: 15px;
+    }
+
+    .home-section-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .home .home-section {
+        padding: 15px;
+        margin: 20px 5px;
+        border-radius: 15px;
+        max-width: 300px;
+    }
+
+    .home .home-section h1 {
+        font-size: 2rem;
+    }
+
+    .home .home-section p {
+        font-size: 14px;
+    }
+}
 
 

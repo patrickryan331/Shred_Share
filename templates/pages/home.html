@@ -17,7 +17,6 @@
         </div>
 
 
-
         
             <div class="home-section-container">
                 <div class="home-section">
@@ -26,8 +25,11 @@
                         <p>
                             Your go-to hub for real-time weather updates, ski reports, and all things winter sports. Whether you're chasing the freshest powder or planning your next resort meetup, Shred Share keeps you connected to the mountains you love. Stay informed with current conditions, share your experience with the community, and upload photos to showcase the best runs of the day. Discuss trail conditions, organize meetups, and connect with fellow winter sports enthusiasts, all in one place.
                             <br><br>
-                            Join the Shred Share community today and make the most of every winter adventure!
-                        </p>
+                            Join the Shred Share community today and make the most of every winter adventure!</p>
+                            <button type="button">
+                                <a href="{% url 'login' %}">Login or Create an Account!</a>
+                            </button>
+                        
 
                     </div>
             
@@ -35,23 +37,30 @@
 
                         <h1>Upcoming Meetups</h1>
                         <p>
-                            Ready to hit the slopes with fellow winter sports enthusiasts? Our Shred Share Meetups section keeps you in the loop on the latest gatherings happening at your favorite mountains and resorts. Whether you're a seasoned shredder or new to the scene, join one of our meetups to connect with like-minded adventurers, swap tips, and share in the thrill of the ride.
-
-                            Explore our upcoming meetups, RSVP, and find your crew for the next big snow day. Let's make this winter unforgettable—one mountain, one run, one meetup at a time.
+                            Ready to hit the slopes with fellow winter sports enthusiasts? Our Shred Share Meetups section keeps you in the loop on the latest gatherings happening at your favorite mountains and resorts. Whether you're a seasoned shredder or new to the scene, join one of our meetups to connect with like-minded adventurers, swap tips, and share in the thrill of the ride.Explore our upcoming meetups, RSVP, and find your crew for the next big snow day.
+                            <br><br>
+                            Let's make this winter unforgettable—one mountain, one run, one meetup at a time.
                         </p>
+                        <button type="button">
+                            <a href="{% url 'meetups' %}">Check Upcoming Meetups!</a>
+                        </button>
 
                     </div>
 
                     <div class="home-section">
                         <h1>Latest Conditions</h1>
                         <p>Stay up-to-date with the most recent snow reports, weather forecasts, and trail conditions at your favorite ski resorts. Our real-time updates ensure you're always prepared for your next adventure on the slopes.</p>
-                        <button>Check the Mountains!</button>
+                        <button type="button">
+                            Check the Forecast!</a>
+                        </button>
                     </div>
                     
                     <div class="home-section">
                         <h1>Community Highlights</h1>
                         <p>Check out the latest photos, videos, and stories shared by our vibrant Shred Share community. Get inspired by fellow winter sports enthusiasts and share your own epic moments on the mountain.</p>
-                        <button>Visit the Mountains Home</button>
+                        <button type="button">
+                            <a href="{% url 'mountains' %}">Check out the Mountains!</a>
+                        </button>
                     </div>
                 </div>
             

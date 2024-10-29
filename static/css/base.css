@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #D6E1EB;
+    --primary-color: #ddeeff;
     --primary-color-100: #b3d0ea;
     --primary-color-300: #95c0e9;
 
@@ -7,13 +7,14 @@
     --secondary-color-600: #83b0d5;
     --secondary-color-900: #79aad1;
 
-    --neutral-color: #eedad8;
+    --neutral-color: #fff1eb;
 
-    --background-color: #2f6398;
+    --background-color: #3a68ae;
     --surface-color: #252525;
+    --surface-color-100: #272626d3;
+    --surface-color-300: #3c3c4fd3;
     
     --eater-font: "Eater"
-
 }
 
 
@@ -27,15 +28,24 @@ body {
 }
 
 h1 {
-    color: var(--secondary-color-600);
-    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-size: 2.3rem;
     text-transform: uppercase;
+    text-shadow: 1px 2px 2px black;
 }
 
 h2 {
     color: var(--primary-color);
     font-size: 1.8rem;
     letter-spacing: .06rem;
+    text-shadow: 1px 2px 2px black;
+}
+
+h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    letter-spacing:.04rem;
+    text-shadow: 1px 2px 2px black;
 }
 
 p {
@@ -43,6 +53,7 @@ p {
     line-height: 1.5rem;
     font-size: 1.1rem;
     text-align: center;
+    text-shadow: 1px 1px 1px black;
 }
 
 
@@ -72,12 +83,31 @@ body {
     flex-direction: column;
 }
 
+
 button {
-    padding: 10px 20px;
-    background-color: var(--neutral-color);
+    background-color: var(--primary-color-300);
     color: var(--surface-color);
-    font-weight: bolder;
-    border-radius: 5px;
+    border: 2px solid var(--background-color);
+    border-radius: 20px;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+    align-self: center;
 }
 
+button a{
+    text-decoration: none;
+    color: var(--surface-color);
+}
+
+button:hover {
+    background-color: var(--primary-color-100);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}

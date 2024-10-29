@@ -10,6 +10,9 @@ class Mountain(models.Model):
     location = models.CharField(max_length=100)
     description = models.TextField()
 
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     title = models.CharField(max_length=50, null=True, blank=True)
     body = models.TextField(max_length=200, null=True, blank=True)
@@ -20,7 +23,15 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
 
+
+
+class Comment(models.Model):
+    text = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey(Post, blank=True, null=True, on_delete=models.CASCADE)
+    author = models.ForeignKey(user, blank=True, null=True, on_delete=models.CASCADE)
 
 
 

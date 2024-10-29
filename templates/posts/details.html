@@ -4,10 +4,42 @@
 {% block title %}Details{% endblock %}
 
 {% block content %}
-
-    <h2>{{title}}</h2>
+<div  class="center-column">
+    <h2>{{post.title}}</h2>
     <label>Published  on: {{post.date}} </label>
     <hr />
     <p>{{post.body}}</p>
+
+
+    <hr />
+
+    <div>
+        <h3>Comments:
+        {% for cm in comments %}
+        <div>
+            <p>{{cm.text}}</p>
+            <label>{{cm.author.username}}</label>
+        </div>
+        {% endfor %}
+        </h3>
+    </div>
+
+    <div>
+        <form method="post"  action="{% url 'create_comment' %}">
+            {% csrf_token %}
+            <h4>Post your comment here</h4>
+
+            <input type="hidden" value="{{post.id}}" name="post_id">
+        
+    <div>
+        <label>Comment text</label>
+        <textarea  name="text"></textarea>
+    </div>
+        <button type="submit" class="button">Submit</button>
+
+        </form>
+    
+    </div>
+</div>
 
 {% endblock %}

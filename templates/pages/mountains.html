@@ -9,13 +9,28 @@
     <div class="mountains-info">
         <h1>Explore New England Mountains</h1>
         <p>Welcome to the Mountains hub of Shred Share, your ultimate guide to New England's top ski resorts and winter sports destinations. Whether you're chasing fresh powder or planning your next meetup on the slopes, this page gives you access to all the mountain-specific pages. From Stowe to Okemo, each mountain has its own page filled with up-to-date conditions, weather reports, and user-contributed content. Check out photos, blogs, and discussions from fellow winter enthusiasts, and get ready to shred like never before!</p>
+
+
     </div>
     <div class="mountains-logo">
         <div class="mountains-img">
+
+            <a href="{% url 'okemo' %}">
             <img src="/static/img/okemo-logo.png" alt="">
+            </a>
+
+            <a href="{% url 'stowe' %}">
             <img src="/static/img/stowe-logo.png" alt="">
+            </a>
+
+            <a href="{% url 'killington' %}">
             <img src="/static/img/Killington-logo.png" alt="">
+            </a>
+
+            <a href="{% url 'mtsnow' %}">
             <img src="/static/img/mtsnow-logo.png" alt="">
+            </a>
+
         </div>
     </div>
 </div>

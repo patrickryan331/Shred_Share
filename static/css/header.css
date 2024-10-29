@@ -5,6 +5,7 @@ header {
     top: 0px;
     width: 100%;
     border-bottom: 2px solid var(--neutral-color);
+    z-index: 1000;
 }
 
 

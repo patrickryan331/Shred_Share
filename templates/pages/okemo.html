@@ -8,37 +8,127 @@
 
 
 <div class="mountain-info-page">
-    <div class="info-page-header">
-        <h5>Okemo</h5>
+    <div class="info-page-header okemo-header">
+        <h1>Okemo</h1>
     </div>
+
+
 
     <div class="mountain-page-img">
-        <img src="/static/img/okemo-logo.png" alt="missing img">
+        <div class="carousel">
+            <img src="/static/img/okemo-logo.png" alt="Okemo logo" class="active">
+            <img src="/static/img/okemo2.jpg" alt="Okemo scenery 1">
+            <img src="/static/img/okemo3.jpg" alt="Okemo scenery 2">
+            <img src="/static/img/okemo4.png" alt="Okemo scenery 3">
+            <img src="/static/img/okemo5.jpg" alt="Okemo scenery 3">
+        </div>
     </div>
 
-    <div class="weather">
-        <h2>this is where the weather will go</h2>
+    {% block extra_js %}
+    <script src="{% static 'js/carousel.js' %}"></script>
+    {% endblock %}
+
+
+    <div class="mountain-info">
+        <h5 class="mountain-info-h5">The base of Okemo stands at 1,144 feet above sea level, and the summit is 3,344 feet. This gives Okemo the largest vertical drop in southern Vermont, 2,200 feet. The mountain has a total of 123 trails spread across 667 acres skiable terrain.</h5>
     </div>
+
+
+
+
+    <div class="weather">
+        {% if weather %}
+        <div class="current-weather center-column">
+            <h2>Current Weather</h2>
+            <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather icon">
+            <p>Date: {{ current_data.date1 }}</p>
+            <p>Temperature: {{ weather.temperature }}°F</p>
+            <p>Conditions: {{ weather.description }}</p>
+            <p>Perceipitation: {{ percipitation.value }}</p>
+            <p>Type: {{ percipitation.mode }}</p>
+        </div>
+        {% endif %}
+
+        {% if forecast %}
+        <h2 class="forecast-h2">5-Day Forecast</h2>
+        <div class="forecast center-row">
+            {% for item in forecast %}
+            <div class="forecast-item">
+                <img src="http://openweathermap.org/img/w/{{ item.icon }}.png" alt="Forecast icon">
+                <p>Date: {{ item.date2 }}</p>
+                <p>{{ item.description }}</p>
+                <p>Day Temp: {{ item.temp_day }}°F</p>
+                <p>Night Temp: {{ item.temp_night }}°F</p>
+                <p>Snow: {{ item.snow }}</p>
+                
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if weather_error %}
+        <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
+        {% endif %}
+
+        {% if weather_error %}
+        <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
+        {% endif %}
+    </div>
+
+
+
+
 
     <div class="ski-report">
         <h2>this is where the ski report will go</h2>
     </div>
 
 
-            <div class="mountain-post">
-                <h2>the posts will go here</h2>
-                <div class="mountain-post">
-                    <h2>Mountain Posts</h2>
-                    
-                    </div>
+    <div class="mountain-post">                
+
+    <h1>Create a Post !</h1>
+
+
+
+    {% if user.is_authenticated %}
+    <form method="post" action="{% url 'save_comment' %}">
+        {% csrf_token %}
+
+        <input name="mountain_id" type="hidden" value="{{mountain_id}}">
+        <input name="mountain_name" type="hidden" value="{{mountain_name}}">
+        {{form.as_p}} 
+
+        <button type="submit">Save Post</button>
+    </form>
+    {% else %}
+    <p>You must be logged in to create a post.</p>
+    {% endif %}
+</div>
+
+
+    
+    <div class="mountain-post-list">
+    
+        <h1>Okemo Shred Posts !</h1>
+
+
+            {% if user.is_authenticated %}
+                {% for post in posts %}
+                    <div class="post-body card-body">
+                    <h6 class="card-title">{{post.title}}</h6>
+                    <h3 class="card-subtitle mb-2 text-body-secondary">Posted by: {{post.author}}</h3>
+                    <h4 class="card-subtitle mb-2 text-body-secondary">{{post.date}}</h4>
+                    <p class="card-text">{{post.body}}</p>
                 </div>
-                
-            </div>
+                {% endfor %}
+            {% else %}
+                <p class="logged-out-message">You must be logged in to view posts.</p>
+            {% endif %}
+        </div>
+            
             
         </div>
     </div>
-
-</div>
 
 
 

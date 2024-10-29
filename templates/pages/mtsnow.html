@@ -9,11 +9,27 @@
 
 <div class="mountain-info-page">
     <div class="info-page-header">
-        <h5>Mt. Snow</h5>
+        <h1>Mount Snow</h1>
     </div>
 
-    <div class="mountain-page-img">
-        <img src="/static/img/mtsnow-logo.png" alt="missing img">
+
+    <div class="mountain-page-img center-column">
+        <div class="carousel">
+            <img src="/static/img/mtsnow-logo.png" alt="Okemo logo" class="active">
+            <img src="/static/img/mtsnow2.jpg" alt="">
+            <img src="/static/img/mtsnow3.jpg" alt="">
+            <img src="/static/img/mtsnow4.jpg" alt="">
+            <img src="/static/img/mtsnow5.jpg" alt="">
+        </div>
+    </div>
+
+    {% block extra_js %}
+    <script src="{% static 'js/carousel.js' %}"></script>
+    {% endblock %}
+
+
+    <div class="mountain-info">
+        <h5 class="mountain-info-h5">Mount Snow is a mountain and ski resort in southern Vermont located in the Green Mountains. It is Vermont's southernmost big mountain, and therefore, closest to many Northeast metropolitan areas. Mount Snow is home to Carinthia Parks which includes ten terrain parks, with both natural and man-made features and a super-pipe.</h5>
     </div>
 
     <div class="weather">
@@ -24,18 +40,57 @@
         <h2>this is where the ski report will go</h2>
     </div>
 
-    <div class="mountain-post">
-        <h2>this is where the mountain posts will go</h2>
+
+
+    <div class="mountain-post">               
+
+        <h1>Create a Post !</h1>
+    
+    
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'save_comment' %}">
+                {% csrf_token %}
+    
+                <input name="mountain_id" type="hidden" value="{{mountain_id}}">
+                <input name="mountain_name" type="hidden" value="{{mountain_name}}">
+                {{form.as_p}} 
+    
+                <button type="submit">Save Post</button>
+            </form>
+            {% else %}
+            <p>You must be logged in to create a post.</p>
+            {% endif %}
     </div>
+    
+    
+            <div class="mountain-post-list">
+    
+            <h1> Mount SnowShred Posts !</h1>
+    
+                
+            {% if user.is_authenticated %}
+                {% for post in posts %}
+                    <div class="post-body">
+                        <h6>{{post.title}}</h6>
+                        <h3>Posted by: {{post.author}}</h3>
+                        <h4>{{post.date}}</h4>
+                        <p>{{post.body}}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="logged-out-message">You must be logged in to view posts.</p>
+            {% endif %}
+            </div>
+                
+                
+            </div>
+        </div>
+
+
+
+
+
+
 
 </div>
-
-
-
-
-
-
-
-
-
 {% endblock %}

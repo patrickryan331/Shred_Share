@@ -1,60 +1,313 @@
-.mountain-page-info {
 
-}
 
 .info-page-header {
-    font-size: 56px;
+    font-family: var(--eater-font) !important;
     color: var(--neutral-color);
     background-color: var(--surface-color);
     text-align: center;
-    max-width: 200px;
+    max-width: 50%;
     border: 1px solid var(--neutral-color);
     border-radius: 10px;
-    margin: 20px auto 30px auto;
+    margin: 90px auto 60px auto !important;
+    box-shadow: 0px 9px 30px 8px rgba(0,0,0,0.75);
 }
 
+
+.okemo-header {
+    max-width: 35% !important;
+}
+
+.stowe-header {
+    max-width: 35% !important;
+}
+
+.info-page-header h1 {
+    margin: 20px auto 20px auto;
+    font-size: 4rem !important;
+}
 .mountain-page-img {
-    margin: 10px auto 25px auto;
-    max-width: 575px;
+    margin: 10px auto 55px auto;
+    max-width: 70%;
+    height: 50%;
     text-align: center;
     background-color: #25252591;
     border: 1px solid white;
     border-radius: 30px;
     padding: 30px;
-}
-
-.mountain-page-img img {
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    box-shadow: 0px 9px 30px 8px rgba(0,0,0,0.75);
 }
 
 .weather {
-    margin: 10px auto 25px auto;
-    max-width: 650px;
+    margin: 10px auto 55px auto;
+    max-width: 85%;
     text-align: center;
     background-color: #25252591;
     border: 1px solid white;
     border-radius: 30px;
     padding: 30px;
+    box-shadow: 0px 9px 30px 8px rgba(0,0,0,0.75);
 }
 
+.forecast-h2 {
+    margin: 20px auto;
+}
+
+.forecast-item {
+    margin: 0 25px 10px 0;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.weather p {
+    margin: 20px 20px 20px 20px;
+}
+
+
+
 .ski-report {
-    margin: 10px auto 25px auto;
-    max-width: 650px;
+    margin: 10px auto 55px auto;
+    max-width: 65%;
     text-align: center;
     background-color: #25252591;
     border: 1px solid white;
     border-radius: 30px;
     padding: 30px;
+    box-shadow: 0px 9px 30px 8px rgba(0,0,0,0.75);
+}
+
+
+.mountain-info {
+    margin: 10px auto 55px auto;
+    max-width: 75%;
+    text-align: center;
+    background-color: #25252591;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0px 9px 30px 8px rgba(0,0,0,0.75);
+}
+
+
+.mountain-info-h5 {
+    color: var(--neutral-color);
+    line-height: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: center;
+    text-shadow:1px 1px black;
+}
+
+.mountain-info-page h1 {
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.logged-out-message {
+    max-width: 55% !important;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .mountain-post {
     margin: 10px auto 25px auto;
-    max-width: 650px;
-    text-align: center;
+    max-width: 55%;
     background-color: #25252591;
     border: 1px solid white;
     border-radius: 30px;
     padding: 30px;
+    box-shadow: 0px 9px 30px 8px rgba(0,0,0,0.75);
+}
+
+.mountain-post h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Form styling */
+
+.mountain-post {
+    margin: 80px auto 55px auto;
+}
+
+.mountain-post form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.mountain-post form p {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.mountain-post label {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.mountain-post input[type="text"],
+.mountain-post textarea {
+    background-color: var(--surface-color);
+    border: 1px solid var(--secondary-color-600);
+    border-radius: 8px;
+    padding: 0.8rem;
+    color: var(--neutral-color);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.mountain-post input[type="text"]:focus,
+.mountain-post textarea:focus {
+    outline: none;
+    border-color: var(--primary-color-300);
+    box-shadow: 0 0 0 2px rgba(149, 192, 233, 0.2);
+}
+
+.mountain-post textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Submit button styling */
+.mountain-post button[type="submit"] {
+    background-color: var(--primary-color-300);
+    color: var(--surface-color);
+    border: none;
+    border-radius: 20px;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+    align-self: center;
+}
+
+.mountain-post button[type="submit"]:hover {
+    background-color: var(--primary-color-100);
+    transform: translateY(-1px);
+}
+
+.mountain-post button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Not logged in message styling */
+.mountain-post p:not(:has(input, textarea)) {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color-600);
+}
+
+
+
+
+
+/* Mountain post list styling */
+.mountain-post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 60%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mountain-post-list h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Post body styling */
+.post-body {
+    width: 100%;
+    background-color: var(--surface-color);
+    border: 1px solid var(--secondary-color-600);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.2s ease;
+    
+}
+
+.post-body:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-body h6 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.post-body h3 {
+    color: var(--primary-color-100) !important;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-body h4 {
+    color: var(--primary-color-300) !important;
+    font-size: .8rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-body p {
+    color: var(--neutral-color);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    background-color: var(--surface-color-300);
+    max-width: 70%;
+    border: 1px solid var(--surface-color);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+/* Carousel styling */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 475px;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    object-fit: scale-down;
+    border-radius: 30px;
+}
+.carousel img.active {
+    opacity: 1;
 }
