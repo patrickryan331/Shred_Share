@@ -41,7 +41,7 @@
     justify-content: center;
     width: 75%;
     margin: 80px auto 50px auto;
-    background-color: var(--surface-color);
+    background-color: var(--surface-color-100);
     border: 1px solid white;
     border-radius: 30px;
     padding: 20px;

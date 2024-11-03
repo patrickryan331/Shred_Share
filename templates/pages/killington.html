@@ -31,12 +31,41 @@
         <h5 class="mountain-info-h5">Killington Mountain Resort & Ski Area is a ski resort in Rutland County, Vermont, United States, near the town of Killington. It is the largest ski area in the eastern U.S., and has the largest vertical drop in New England at 3,050 feet. The mountain has been nicknamed the "Beast of the East."</h5>
     </div>
 
-    <div class="weather">
-        <h2>this is where the weather will go</h2>
-    </div>
 
-    <div class="ski-report">
-        <h2>this is where the ski report will go</h2>
+    <div class="weather">
+        {% if weather %}
+        <div class="current-weather center-column">
+            <h2>Current Weather</h2>
+            <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather icon">
+            <p>Date: {{ weather.date1|date:"F d, Y" }}</p>
+            <p>Temperature: {{ weather.temperature }}°F</p>
+            <p>Conditions: {{ weather.description }}</p>
+        </div>
+        {% endif %}
+
+        {% if forecast %}
+        <h2 class="forecast-h2">5-Day Forecast</h2>
+        <div class="forecast center-row">
+            {% for item in forecast %}
+            <div class="forecast-item">
+                <img src="http://openweathermap.org/img/w/{{ item.icon }}.png" alt="Forecast icon">
+                <p>{{ item.date2|date:"F d, Y" }}</p>
+                <p>{{ item.description }}</p>
+                <p>Day Temp: {{ item.temp_day }}°F</p>
+                <p>Night Temp: {{ item.temp_night }}°F</p>
+                
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if weather_error %}
+        <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
+        {% endif %}
+
+        {% if weather_error %}
+        <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
+        {% endif %}
     </div>
 
 

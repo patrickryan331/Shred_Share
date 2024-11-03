@@ -32,12 +32,41 @@
         <h5 class="mountain-info-h5">Mount Snow is a mountain and ski resort in southern Vermont located in the Green Mountains. It is Vermont's southernmost big mountain, and therefore, closest to many Northeast metropolitan areas. Mount Snow is home to Carinthia Parks which includes ten terrain parks, with both natural and man-made features and a super-pipe.</h5>
     </div>
 
-    <div class="weather">
-        <h2>this is where the weather will go</h2>
-    </div>
 
-    <div class="ski-report">
-        <h2>this is where the ski report will go</h2>
+    <div class="weather">
+        {% if weather %}
+        <div class="current-weather center-column">
+            <h2>Current Weather</h2>
+            <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather icon">
+            <p>Date: {{ weather.date1|date:"F d, Y" }}</p>
+            <p>Temperature: {{ weather.temperature }}°F</p>
+            <p>Conditions: {{ weather.description }}</p>
+        </div>
+        {% endif %}
+
+        {% if forecast %}
+        <h2 class="forecast-h2">5-Day Forecast</h2>
+        <div class="forecast center-row">
+            {% for item in forecast %}
+            <div class="forecast-item">
+                <img src="http://openweathermap.org/img/w/{{ item.icon }}.png" alt="Forecast icon">
+                <p>{{ item.date2|date:"F d, Y" }}</p>
+                <p>{{ item.description }}</p>
+                <p>Day Temp: {{ item.temp_day }}°F</p>
+                <p>Night Temp: {{ item.temp_night }}°F</p>
+                
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if weather_error %}
+        <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
+        {% endif %}
+
+        {% if weather_error %}
+        <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
+        {% endif %}
     </div>
 
 

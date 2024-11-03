@@ -20,7 +20,9 @@
 
 html {
     font-size: 16px;
-    background-color: var(--background-color);
+    /* background-color: var(--background-color); */
+    background: rgb(56,57,179);
+    background: linear-gradient(0deg, rgba(56,57,179,1) 35%, rgba(51,121,196,1) 100%);
 }
 
 body {

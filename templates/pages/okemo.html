@@ -30,7 +30,7 @@
 
 
     <div class="mountain-info">
-        <h5 class="mountain-info-h5">The base of Okemo stands at 1,144 feet above sea level, and the summit is 3,344 feet. This gives Okemo the largest vertical drop in southern Vermont, 2,200 feet. The mountain has a total of 123 trails spread across 667 acres skiable terrain.</h5>
+        <h5 class="mountain-info-h5">The base of Okemo stands at 1,144 feet above sea level, and the summit is 3,344 feet. This gives Okemo the largest vertical drop in southern Vermont, 2,200 feet. The mountain has a total of 123 trails spread across 667 acres of skiable terrain.</h5>
     </div>
 
 
@@ -41,11 +41,9 @@
         <div class="current-weather center-column">
             <h2>Current Weather</h2>
             <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather icon">
-            <p>Date: {{ current_data.date1 }}</p>
+            <p>{{ weather.date1|date:"F d, Y" }}</p>
             <p>Temperature: {{ weather.temperature }}°F</p>
             <p>Conditions: {{ weather.description }}</p>
-            <p>Perceipitation: {{ percipitation.value }}</p>
-            <p>Type: {{ percipitation.mode }}</p>
         </div>
         {% endif %}
 
@@ -55,11 +53,10 @@
             {% for item in forecast %}
             <div class="forecast-item">
                 <img src="http://openweathermap.org/img/w/{{ item.icon }}.png" alt="Forecast icon">
-                <p>Date: {{ item.date2 }}</p>
+                <p>{{ item.date2|date:"F d, Y" }}</p>
                 <p>{{ item.description }}</p>
                 <p>Day Temp: {{ item.temp_day }}°F</p>
                 <p>Night Temp: {{ item.temp_night }}°F</p>
-                <p>Snow: {{ item.snow }}</p>
                 
             </div>
             {% endfor %}
@@ -70,18 +67,12 @@
         <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
         {% endif %}
 
-        {% if weather_error %}
-        <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
-        {% endif %}
     </div>
 
 
 
 
 
-    <div class="ski-report">
-        <h2>this is where the ski report will go</h2>
-    </div>
 
 
     <div class="mountain-post">                
