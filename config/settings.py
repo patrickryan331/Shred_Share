@@ -14,7 +14,13 @@ from pathlib import Path
 import os
 import certifi
 import environ
+from pathlib import Path
+from environs import Env
+import secrets
 
+
+env = Env()
+env.read_env()
 
 os.environ["SSL_CERT_FILE"] = certifi.where()
 
@@ -32,12 +38,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tmj1yv1*e11c%nl+286im(kxup@r9s1l32h4c*ajw4$3--v4@e'
+SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".herokuapp.com",]
 
 
 # Application definition
@@ -58,12 +64,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -135,8 +143,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 MEDIA_URL = 'media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = str(BASE_DIR.joinpath("staticfiles"))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -160,3 +170,13 @@ EMAIL_USE_SSL = False
 
 EMAIL_HOST_USER = env('SMTP_EMAIL')
 EMAIL_HOST_PASSWORD = env('SMTP_PASSWORD')
+
+
+
+
+# if this code is running in heroku
+# use heroku database instead of db.sqlite3
+
+if 'DYNO' in os.environ:
+    import django_heroku
+    django_heroku.settings(locals())
