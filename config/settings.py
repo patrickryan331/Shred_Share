@@ -39,11 +39,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env.str("SECRET_KEY")
+print("\n\n\n\n\n\n\n")
+print(SECRET_KEY)
+print("\n\n\n\n\n\n\n")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".herokuapp.com",]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".herokuapp.com", "*"]
 
 
 # Application definition
