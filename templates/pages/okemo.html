@@ -36,16 +36,24 @@
 
 
 
+    
+    
+    
     <div class="weather">
+        
         {% if weather %}
         <div class="current-weather center-column">
-            <h2>Current Weather</h2>
+            <h2>Okemo Mountain Current Weather</h2>
             <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather icon">
             <p>{{ weather.date1|date:"F d, Y" }}</p>
             <p>Temperature: {{ weather.temperature }}°F</p>
             <p>Conditions: {{ weather.description }}</p>
         </div>
         {% endif %}
+
+    </div>
+
+    <div class="forecast-container">
 
         {% if forecast %}
         <h2 class="forecast-h2">5-Day Forecast</h2>
@@ -67,8 +75,36 @@
         <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
         {% endif %}
 
+
+        <h6>Weather Forecast Provided by <a href="https://openweathermap.org/"  target="_blank"> openweathermap.org</a></h6>
+    
     </div>
 
+    <div class="ski-report">
+        <h2>Okemo Ski Report</h2>
+        <div class="ski-report-info-container">
+            <div class="ski-report-info">
+                <h3>Snowfall Last 24h</h3>
+                <p>1 in</p>
+            </div>
+            <div class="ski-report-info">
+                <h3>Snowfall Next 24h</h3>
+                <p>3 in</p>
+            </div>
+            <div class="ski-report-info">
+                <h3>Base Depth</h3>
+                <p>30 in</p>
+            </div>
+            <div class="ski-report-info">
+                <h3>Open Trails</h3>
+                <p>86 / 124</p>
+            </div>
+            <div class="ski-report-info">
+                <h3>Open Lifts</h3>
+                <p>12 / 15</p>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -82,7 +118,7 @@
 
 
     {% if user.is_authenticated %}
-    <form method="post" action="{% url 'save_comment' %}">
+    <form method="post" action="{% url 'save_comment' %}"  enctype="multipart/form-data">
         {% csrf_token %}
 
         <input name="mountain_id" type="hidden" value="{{mountain_id}}">
@@ -105,11 +141,14 @@
 
             {% if user.is_authenticated %}
                 {% for post in posts %}
-                    <div class="post-body card-body">
+                <div class="post-body card-body">
                     <h6 class="card-title">{{post.title}}</h6>
                     <h3 class="card-subtitle mb-2 text-body-secondary">Posted by: {{post.author}}</h3>
                     <h4 class="card-subtitle mb-2 text-body-secondary">{{post.date}}</h4>
                     <p class="card-text">{{post.body}}</p>
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="Post image" class="post-image">
+                    {% endif %}
                 </div>
                 {% endfor %}
             {% else %}

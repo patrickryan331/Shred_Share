@@ -80,6 +80,7 @@ def create_comment(request):
     post_id = request.POST.get('post_id')
     comment_text = request.POST.get('text')
     user = request.user
+    image = request.POST.get('image')
 
     post_obj = Post.objects.get(id=post_id)
 
@@ -87,7 +88,8 @@ def create_comment(request):
     comment = Comment.objects.create(
         text=comment_text,
         post  = post_obj,
-        author = user
+        author = user,
+        image= image, 
     )
 
     comment.save()
@@ -127,3 +129,18 @@ def contact(request):
         form = ContactForm()
 
     return render(request, 'pages/contact.html', {'form': form})
+
+
+
+
+def save_comment(request):
+    if request.method == 'POST':
+        form = PostCreateForm(request.POST, request.FILES)  # Add request.FILES here
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.mountain_id = request.POST.get('mountain_id')
+            post.mountain_name = request.POST.get('mountain_name')
+            post.save()
+            return redirect('okemo')  # or whatever your redirect path is
+    return redirect('okemo')

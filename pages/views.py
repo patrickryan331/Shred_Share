@@ -112,19 +112,6 @@ class OkemoPageView(MountainDetailsPageView):
             context['weather_error'] = str(e)
 
 
-
-        # ski_report = requests.get(ski_resort_url)
-        # ski_report_data = ski_report.json()
-
-        # context['ski_report'] = {
-
-        # }
-
-
-
-
-
-
         
 
         return context

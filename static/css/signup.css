@@ -37,15 +37,37 @@
 
 
 .signup-container input[type="text"]:focus,
-.signup-container input[type="email"]:focus {
+.signup-container input[type="password"]:focus,
+.signup-container input[type="email"]:focus,
+.password-reset input {
     outline: none;
     border-color: var(--primary-color-300);
     box-shadow: 0 0 0 2px rgba(149, 192, 233, 0.2);
 }
 
 
+
+.signup-container input[type="text"]:-webkit-any(),
+.signup-container input[type="email"]:-webkit-any(),
+.password-reset input {
+    background-color: var(--surface-color) !important;
+    border: 1px solid var(--secondary-color-600) !important;
+    border-radius: 8px;
+    padding: 0.8rem;
+    color: var(--neutral-color) !important;
+    font-size: 1rem;
+    transition: border-color 0.2s ease !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+
 .signup-container input[type="text"],
-.signup-container input[type="email"] {
+.signup-container input[type="password"],
+.signup-container input[type="email"],
+.password-reset input {
     background-color: var(--surface-color) !important;
     border: 1px solid var(--secondary-color-600) !important;
     border-radius: 8px;
@@ -78,3 +100,22 @@
     display: block !important;
 }
 
+
+.password-reset input {
+    width: 450px !important;
+}
+
+.content li {
+    color: var(--primary-color);
+}
+
+.signup-container input {
+    width: 60%;
+}
+
+
+
+input:-webkit-autofill { background-color: var(--surface-color) !important;  transition: background-color 5000s ease-in-out 0s; } 
+input:-moz-placeholder { background-color: var(--surface-color) !important; } 
+input:-webkit-autofill:focus { background-color: var(--surface-color) !important;  } 
+input:-ms-input-placeholder { background-color: var(--surface-color) !important; }

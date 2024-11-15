@@ -23,6 +23,9 @@
         <div class="mb-3">
             <label class="form-label">Password</label>
             <input name="password" type="password" class="form-control" required>
+            <div class="forgot-password center-row">
+                <a href="{% url 'password_reset' %}" class="text-muted small">Forgot your password?</a>
+            </div>
         </div>
 
         <button class="button">Login</button>
@@ -30,7 +33,7 @@
         <h2>Don't have an account?</h2>
         <p>Join Shred Share to unlock exclusive features! Create an account to gain access to posting your own blogs, sharing photos, and commenting on resort conditions. As a member, you’ll be able to connect with fellow winter sports enthusiasts, plan meetups at your favorite mountains, and enjoy perks at community events. Be part of New England's vibrant skiing and snowboarding community—sign up today!</p>
         <button type="button">
-            <a href="{% url 'signup' %}">Click here!</a>
+            <a href="{% url 'signup' %}">Click here To Create an Account!</a>
         </button>
 
 

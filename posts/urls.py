@@ -9,6 +9,7 @@ urlpatterns = [
     path("create/", CreatePostView.as_view(), name= "create_post"),
     path("posts/", PostListView.as_view(), name="posts"),
     path("create_comment", create_comment, name="create_comment"),
-    path("save_comment", save_post_for_page, name="save_comment"),
+    # path("save_comment", save_post_for_page, name="save_comment"),
+    path("save_comment", views.save_comment, name="save_comment"),
     path("contact/", contact, name="contact"),
 ]

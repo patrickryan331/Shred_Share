@@ -177,3 +177,77 @@
 }
 
 
+
+
+/* MOUNTAIN PAGE */
+@media (max-width: 767px) {
+    .mountain-page {
+        padding: 1%;
+        flex-direction: column;
+    }
+
+    .mountain-section {
+        padding: 20px;
+        margin: 30px 10px;
+        border-radius: 20px;
+        max-width: 450px;
+    }
+
+    .mountain-details {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .mountain-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .mountain-section {
+        padding: 15px;
+        margin: 20px 5px;
+        max-width: 300px;
+    }
+}
+
+
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .mountain-info-h5 {
+    font-size: 1rem;
+    padding: 0 15px;
+    }
+    
+    .forecast-item {
+    min-width: 150px;
+    }
+    
+    .ski-report-info-container {
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ski-report-info-container {
+    grid-template-columns: 1fr;
+    }
+    
+    .forecast-item {
+    width: 70%;
+    display: inline-block;
+    
+
+
+    }
+    
+    h1, h2 {
+    font-size: 1.5rem;
+    }
+
+    .weather {
+        width: 80%;
+    }
+}

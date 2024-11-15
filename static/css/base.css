@@ -22,7 +22,7 @@ html {
     font-size: 16px;
     /* background-color: var(--background-color); */
     background: rgb(56,57,179);
-    background: linear-gradient(0deg, rgba(56,57,179,1) 35%, rgba(51,121,196,1) 100%);
+    background: linear-gradient(0deg, rgb(57, 33, 164) 30%, rgba(51,121,196,1) 100%);
 }
 
 body {
@@ -63,6 +63,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: auto;
 }
 
 .center-column {
@@ -85,6 +86,13 @@ body {
     flex-direction: column;
 }
 
+.post-image {
+    max-width: 65%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
 
 button {
     background-color: var(--primary-color-300);

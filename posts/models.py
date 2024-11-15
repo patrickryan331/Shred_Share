@@ -16,6 +16,7 @@ class Mountain(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=50, null=True, blank=True)
     body = models.TextField(max_length=200, null=True, blank=True)
+    image = models.ImageField(upload_to='posts/%Y/%m/%d/', blank=True)
     slug = models.SlugField(max_length=200, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     mountain = models.ForeignKey(Mountain, blank=True, null=True, on_delete=models.CASCADE)

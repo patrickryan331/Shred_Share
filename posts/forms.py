@@ -5,8 +5,10 @@ class PostCreateForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'body', 'slug']
-
+        fields = ['title', 'body', 'image']
+        widgets = {
+            'image': forms.FileInput(attrs={'class': 'form-control'})
+        }
 
 
 class ContactForm(forms.Form):
@@ -14,3 +16,4 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     subject = forms.CharField(max_length=250)
     message = forms.CharField()
+

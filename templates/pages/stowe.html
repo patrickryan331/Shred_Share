@@ -31,16 +31,26 @@
         <h5 class="mountain-info-h5">Stowe Mountain Resort is a ski resort in the northeastern United States, near the town of Stowe in northern Vermont, comprising two separate mountains: Mount Mansfield and Spruce Peak. The lift-served vertical drop of Mount Mansfield is 2,360 feet, the fifth largest in New England and the fourth largest in Vermont.</h5>
     </div>
 
+
+
+
+
+
     <div class="weather">
+        
         {% if weather %}
         <div class="current-weather center-column">
-            <h2>Current Weather</h2>
+            <h2>Okemo Mountain Current Weather</h2>
             <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather icon">
-            <p>Date: {{ weather.date1|date:"F d, Y" }}</p>
+            <p>{{ weather.date1|date:"F d, Y" }}</p>
             <p>Temperature: {{ weather.temperature }}°F</p>
             <p>Conditions: {{ weather.description }}</p>
         </div>
         {% endif %}
+
+    </div>
+
+    <div class="forecast-container">
 
         {% if forecast %}
         <h2 class="forecast-h2">5-Day Forecast</h2>
@@ -62,9 +72,37 @@
         <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
         {% endif %}
 
-        {% if weather_error %}
-        <p>Sorry, we couldn't fetch the weather: {{ weather_error }}</p>
-        {% endif %}
+
+        <h6>Weather Forecast Provided by <a href="https://openweathermap.org/"  target="_blank"> openweathermap.org</a></h6>
+    
+    </div>
+
+
+
+    <div class="ski-report">
+        <h2>Stowe Ski Report</h2>
+        <div class="ski-report-info-container">
+            <div class="ski-report-info">
+                <h3>Snowfall Last 24h</h3>
+                <p>2 in</p>
+            </div>
+            <div class="ski-report-info">
+                <h3>Snowfall Next 24h</h3>
+                <p>1 in</p>
+            </div>
+            <div class="ski-report-info">
+                <h3>Base Depth</h3>
+                <p>22 in</p>
+            </div>
+            <div class="ski-report-info">
+                <h3>Open Trails</h3>
+                <p>93 / 137</p>
+            </div>
+            <div class="ski-report-info">
+                <h3>Open Lifts</h3>
+                <p>14 / 18</p>
+            </div>
+        </div>
     </div>
 
 
